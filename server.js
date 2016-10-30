@@ -46,7 +46,15 @@ router.route('/heroes')
 
 router.route('/heroes/:id')
 .put(function(req, res) {
-    res.status(204).send();
+    var id = parseInt(req.params.id, 10);
+    var matches = herodata.filter(function(hero) {
+        return (hero.id === id);
+    });
+    if (matches.length === 1) {
+        res.status(204).send();
+    } else {
+        res.status(404).send({ error: 'Hero not found!'});
+    }
 })
 .get(function(req, res) {
     var id = parseInt(req.params.id, 10);
