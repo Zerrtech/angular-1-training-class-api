@@ -1,0 +1,9 @@
+{
+  "name": "angular-1-training-class-api",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "~1.0.1",
+    "cors": "^2.8.1",
+    "express": "~4.0.0"
+  }
+}
