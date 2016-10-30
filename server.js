@@ -26,13 +26,12 @@ var router = express.Router();              // get an instance of the express Ro
 
 var herodata = require('./data/heroes.json');
 // modify the imageUrl property to have the full URL of this instance
-var host;
+var url;
 if (process.env.HOST) {
-    host = process.env.HOST;
+    url = process.env.HOST;
 } else {
-    host = "http://localhost";
+    url = "http://localhost" + ":" + port.toString();
 }
-var url = host + ":" + port.toString();
 for (var h=0; h < herodata.length; h++) {
     herodata[h].imageUrl = url + herodata[h].imageUrl;
 }
